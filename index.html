@@ -1,0 +1,67 @@
+<html>
+    <head>
+    <title>剪刀石頭布</title>
+    <link rel="stylesheet" href="pss.css">
+    <script>
+        var WinTimes = 0;
+        var LoseTimes = 0;
+        var EvenTimes = 0;
+        var Ratio = 0;
+
+        function play() {
+            var p1Choice = document.getElementById('choice').value;
+            var p1Choice = parseInt(p1Choice);
+            var p2Choice = parseInt(Math.random() * 3);
+
+            console.log(p1Choice);
+            console.log(p2Choice);
+
+            if (p1Choice == (p2Choice + 1) % 3) {
+                WinTimes = WinTimes + 1;
+                document.getElementById("win").innerHTML = WinTimes;
+                console.log('你贏了!!!');
+            } else if (p1Choice == p2Choice) {
+                EvenTimes = EvenTimes + 1;
+                document.getElementById("even").innerHTML = EvenTimes;
+                console.log('平手!!!');
+            } else {
+                LoseTimes = LoseTimes + 1;
+                document.getElementById("lose").innerHTML = LoseTimes;
+                console.log('你輸了!!!');
+            }
+            Ratio = Math.round((WinTimes / (WinTimes + LoseTimes + EvenTimes)) * 100);
+            document.getElementById("winratio").innerHTML = Ratio + "%";
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        <select id="choice">
+              <option value="0">剪刀</option>
+              <option value="1">石頭</option>
+              <option value="2">布</option>
+            </select>
+        <button type="button" onclick="play();">猜拳</button>
+    </div><br>
+    <table>
+        <thead>
+            <tr>
+                <th>贏的次數</th>
+                <th>平手次數</th>
+                <th>輸的次數</th>
+                <th>贏的比例</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td id="win">0</td>
+                <td id="lose">0</td>
+                <td id="even">0</td>
+                <td id="winratio">0%</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>
