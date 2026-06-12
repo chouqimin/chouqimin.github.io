@@ -1,0 +1,12 @@
+# -- Main Menu --
+# 之後有新主題 section，照樣加一個 [[main]] 區塊即可
+
+[[main]]
+  name = "資訊安全"
+  pageRef = "資訊安全"
+  weight = 10
+
+[[main]]
+  name = "標籤"
+  pageRef = "tags"
+  weight = 20
