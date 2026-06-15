@@ -1,6 +1,6 @@
 ---
 title: "Day 48：HMAC 簽章驗證與 API Request Signing"
-date: 2026-06-12
+date: 2026-06-13
 tags: ["HMAC", "API 安全", "Webhook", "密碼學"]
 ---
 
