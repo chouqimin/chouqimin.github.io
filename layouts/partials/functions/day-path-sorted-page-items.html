@@ -1,0 +1,19 @@
+{{ $items := slice }}
+{{ range . }}
+  {{ $pagePath := .Path }}
+  {{ with .File }}
+    {{ $pagePath = .Path }}
+  {{ end }}
+  {{ $dayPart := replaceRE `(?i)^.*day([0-9]+).*$` "$1" $pagePath }}
+  {{ $dayNumber := 0 }}
+  {{ if ne $dayPart $pagePath }}
+    {{ $normalizedDay := replaceRE "^0+" "" $dayPart }}
+    {{ if eq $normalizedDay "" }}
+      {{ $normalizedDay = "0" }}
+    {{ end }}
+    {{ $dayNumber = int $normalizedDay }}
+  {{ end }}
+  {{ $sortKey := printf "%08d-%s" $dayNumber $pagePath }}
+  {{ $items = $items | append (dict "page" . "sortKey" $sortKey) }}
+{{ end }}
+{{ return (sort $items "sortKey" "desc") }}
