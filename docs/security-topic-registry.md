@@ -1,0 +1,59 @@
+| Day | File | Primary Topic | Angle | Covered Scope | Extension Ideas |
+|---:|---|---|---|---|---|
+| 01 | `content/資訊安全/Day01_SQL_Injection.md` | SQL Injection | 入門 | SQLi 基本原理、登入繞過、Prepared Statement、密碼雜湊、縱深防禦 | ORM 查詢建構器誤用、Second-order SQLi、Stored procedure 風險 |
+| 02 | `content/資訊安全/Day02_XSS.md` | XSS | 入門 | Stored/Reflected/DOM XSS、留言板案例、輸出編碼、CSP、自我檢查 | Trusted Types、HTML sanitizer 比較、CSP rollout 與 report-only |
+| 03 | `content/資訊安全/Day03_CSRF.md` | CSRF | 入門 | CSRF 條件、轉帳案例、SameSite、CSRF token、JWT/Bearer token 情境 | Login CSRF、OAuth state 綁定、SameSite 相容性與例外 |
+| 04 | `content/資訊安全/Day04_Password_Hashing.md` | Password Hashing | 入門 | 密碼不可明文/快速 hash、salt、慢雜湊、Java/Go 範例、timing attack 提醒 | Argon2 參數調校、密碼重雜湊 migration、credential stuffing 防禦 |
+| 05 | `content/資訊安全/Day05_JWT_vs_Session.md` | Session vs JWT | 入門 | Session/JWT 差異、JWT 常見漏洞、適用情境、檢查表 | Token revocation、refresh token rotation、session store 高可用 |
+| 06 | `content/資訊安全/Day06_Brute_Force_Protection.md` | Brute Force Protection | 入門 | Rate limiting、漸進延遲、CAPTCHA、帳號凍結、異常通知、完整流程 | Credential stuffing 偵測、風險式驗證、裝置指紋與隱私 |
+| 07 | `content/資訊安全/Day07_Broken_Access_Control_IDOR.md` | Broken Access Control / IDOR | 入門 | IDOR、UUID 不是解法、垂直越權、default deny、分層防禦 | ABAC/ReBAC 設計、租戶隔離測試、policy engine 導入 |
+| 08 | `content/資訊安全/Day08_Input_Validation_Mass_Assignment.md` | Input Validation / Mass Assignment | 混合入門 | Mass Assignment、DTO、allowlist、型別/格式/商業邏輯/跨欄位驗證、validation 攻擊面 | 純 Input Validation 延伸、schema validation、錯誤訊息洩漏、驗證規則測試 |
+| 09 | `content/資訊安全/Day09_Security_Headers_CORS.md` | Security Headers / CORS | 入門 | HSTS、CSP、X-Frame-Options、nosniff、Referrer-Policy、Permissions-Policy、CORS 設定 | CSP nonce/hash 實作、CORS preflight cache、credentialed CORS 審查 |
+| 10 | `content/資訊安全/Day10_SSRF_Server_Side_Request_Forgery.md` | SSRF | 入門 | 使用者控制 URL、metadata service、內網 pivot、port scan、blind SSRF、黑名單問題、DNS rebinding、redirect、Java/Go 防禦 | DNS pinning、egress proxy、cloud metadata hardening、SSRF 偵測 |
+| 11 | `content/資訊安全/Day11_Path_Traversal_File_Upload.md` | Path Traversal / File Upload | 入門 | 檔名路徑穿越、黑名單繞過、canonical path、安全上傳、常見陷阱 | Symlink race、object storage upload policy、檔案內容掃描 |
+| 12 | `content/資訊安全/Day12_Command_Injection.md` | Command Injection | 入門 | Shell 拼接風險、命令注入能力、避免 shell、參數化呼叫、變形與陷阱 | Argument injection、ImageMagick/ffmpeg 安全包裝、sandboxing |
+| 13 | `content/資訊安全/Day13_XXE_XML_External_Entity.md` | XXE | 入門 | XML Entity、讀檔 payload、SSRF、Blind XXE、Billion Laughs、Java parser 設定、Go 注意事項 | SAML/SOAP XXE、parser-specific hardening、legacy XML migration |
+| 14 | `content/資訊安全/Day14_Insecure_Deserialization.md` | Insecure Deserialization | 入門 | Java ObjectInputStream、Jackson default typing、FastJSON、SnakeYAML、Go 型別混淆、防禦原則 | Gadget chain 案例、ObjectInputFilter、套件 CVE 分析 |
+| 15 | `content/資訊安全/Day15_Secrets_Management.md` | Secrets Management | 入門 | Secret 類型、錯誤做法、分層防禦、log 不洩漏、檢查清單 | Secret rotation、KMS/Vault 整合、CI secret scanning |
+| 16 | `content/資訊安全/Day16_Security_Logging_Monitoring.md` | Security Logging / Monitoring | 入門 | 安全日誌欄位、不可記錄資料、SLF4J/MDC、Go slog、trace ID、警報 | SIEM detection rules、audit log tamper resistance、PII redaction |
+| 17 | `content/資訊安全/Day17_Rate_Limiting.md` | Rate Limiting / API Throttling | 入門 | 演算法、Bucket4j、Redis Lua、Go rate limiter、部署層級與坑 | Distributed quotas、fairness、per-user/per-IP 混合策略 |
+| 18 | `content/資訊安全/Day18_Supply_Chain_Vulnerable_Dependencies.md` | Supply Chain / Dependencies / SBOM | 入門 | 供應鏈攻擊類型、Dependency-Check、govulncheck、Trivy、SBOM | SLSA、dependency confusion、lockfile review、provenance |
+| 19 | `content/資訊安全/Day19_TLS_Cryptographic_Failures.md` | TLS / Cryptographic Failures | 入門 | TLS 基礎、常見加密失誤、敏感資料外洩、安全 API 呼叫 | mTLS rollout、certificate pinning 取捨、cipher policy |
+| 20 | `content/資訊安全/Day20_Open_Redirect.md` | Open Redirect | 入門 | 釣魚風險、危險 redirect 寫法、allowlist、防禦、OAuth redirect_uri 注意 | OAuth mix-up、deep link redirect、signed return URL |
+| 21 | `content/資訊安全/Day21_SSTI_Server_Side_Template_Injection.md` | SSTI | 入門 | SSTI 原理、與 XSS 差異、危險後端寫法、防禦、使用者可編輯模板 | Template sandbox bypass、Jinja/Freemarker/Thymeleaf 差異 |
+| 22 | `content/資訊安全/Day22_Race_Condition_TOCTOU.md` | Race Condition / TOCTOU | 入門 | 競爭條件、銀行轉帳案例、併發攻擊、DB transaction、悲觀鎖、條件式 update、樂觀鎖、分散式鎖、idempotency | DB isolation 深入、併發測試、分散式一致性與補償 |
+| 23 | `content/資訊安全/Day23_HTTP_Request_Smuggling.md` | HTTP Request Smuggling | 入門 | CL/TE 不一致、CL.TE、Go/Java 安全性、HTTP/2 downgrade、防禦 | Proxy chain 測試、H2/H3 邊界、WAF/CDN 行為差異 |
+| 24 | `content/資訊安全/Day24_OAuth2_OIDC_Pitfalls.md` | OAuth2 / OIDC Pitfalls | 入門 | Authorization Code Flow、redirect_uri、PKCE、state、ID Token 驗證、Grant Type | Token substitution、nonce、multi-tenant issuer validation |
+| 25 | `content/資訊安全/Day25_BOPLA_GraphQL_Excessive_Data_Exposure.md` | BOPLA / GraphQL Excessive Data Exposure | 入門 | BOLA vs BOPLA、讀取面暴露、寫入面 Mass Assignment、角色欄位、GraphQL、N+1 | Field-level auth framework、schema lint、GraphQL auth tests |
+| 26 | `content/資訊安全/Day26_Webhook_Security.md` | Webhook Security | 入門 | HMAC 簽章、重放攻擊、冪等性、出站 Webhook SSRF、檢查表 | Webhook retry policy、secret rotation、tenant isolation |
+| 27 | `content/資訊安全/Day27_MFA_TOTP.md` | MFA / TOTP | 入門 | MFA 要素、RFC 6238、後端流程、Java/Go、重放、防備援碼 | Recovery flow abuse、step-up auth、TOTP drift 與鎖定策略 |
+| 28 | `content/資訊安全/Day28_FIDO2_WebAuthn_Passkey.md` | FIDO2 / WebAuthn / Passkey | 入門 | WebAuthn/Passkey 關係、防釣魚、密碼學、Java/Go、地雷、傳統 FIDO2 vs Passkey | Account recovery、resident key、enterprise attestation |
+| 29 | `content/資訊安全/Day29_NoSQL_Injection.md` | NoSQL Injection | 入門 | MongoDB 登入繞過、型別混淆、Java/Go 範例、Aggregation Pipeline、防禦清單 | Elasticsearch injection、query DSL allowlist、operator injection tests |
+| 30 | `content/資訊安全/Day30_Web_Cache_Poisoning.md` | Web Cache Poisoning | 入門 | Cache key vs unkeyed input、X-Forwarded-Host、污染手法、Java/Go、CDN 設定 | Cache deception、Vary header strategy、CDN-specific hardening |
+| 31 | `content/資訊安全/Day31_ReDoS_Regex_Denial_of_Service.md` | ReDoS | 入門 | 指數回溯、災情、Java email validator、Go regexp 安全性、防禦清單 | Regex linting、timeout strategy、RE2 migration |
+| 32 | `content/資訊安全/Day32_Timing_Attack_Constant_Time_Compare.md` | Timing Attack / Constant-Time Compare | 入門 | 字串比對時序洩漏、API token 驗證、Go 標準庫、其他時序洩漏點 | Remote timing feasibility、padding oracle、constant-time review |
+| 33 | `content/資訊安全/Day33_Session_Fixation.md` | Session Fixation | 入門 | Session fixation 原理、與 hijacking 差異、登入後換 session ID、防禦、測試 | Session rotation edge cases、single sign-out、device binding |
+| 34 | `content/資訊安全/Day34_CRLF_Injection_HTTP_Header_Injection.md` | CRLF / HTTP Header Injection | 入門 | CRLF、response splitting、常見變體、防禦層次、驗證範例 | Log injection、email header injection、proxy header normalization |
+| 35 | `content/資訊安全/Day35_Subdomain_Takeover.md` | Subdomain Takeover | 入門 | Dangling DNS、常見服務、接管影響、偵測腳本、流程防禦 | Cloud inventory automation、CI/CD DNS lifecycle、brand monitoring |
+| 36 | `content/資訊安全/Day36_Clickjacking_UI_Redressing.md` | Clickjacking / UI Redressing | 入門 | iframe 點擊劫持、變體、後端責任、X-Frame-Options/CSP、防禦範例 | CSP frame-ancestors migration、OAuth consent clickjacking |
+| 37 | `content/資訊安全/Day37_JWT_Algorithm_Confusion.md` | JWT Algorithm Confusion | 入門 | JWT 結構、alg none、RS256 to HS256、kid 注入、Java/Go、防禦與 CVE | JWKS cache poisoning、key rotation、multi-tenant issuer isolation |
+| 38 | `content/資訊安全/Day38_X_Forwarded_For_Spoofing.md` | X-Forwarded-For / Proxy Header Trust | 入門 | 錯信 header、XFF 正確讀法、災難情境、Spring/Go、Cloudflare/CDN | Multi-proxy chain policy、rate limit identity、trusted proxy config tests |
+| 39 | `content/資訊安全/Day39_DNS_Rebinding.md` | DNS Rebinding | 入門 | 瀏覽器變內網跳板、攻擊流程、與 SSRF 差異、後端四道防線、Actuator 陷阱 | DNS pinning implementation、admin panel hardening、browser private network access |
+| 40 | `content/資訊安全/Day40_HTTP_Parameter_Pollution.md` | HTTP Parameter Pollution | 入門 | 重複參數、框架差異、攻擊情境、漏洞程式碼、防禦與測試 | API gateway normalization、OAuth parameter pollution、contract tests |
+| 41 | `content/資訊安全/Day41_LDAP_Injection.md` | LDAP Injection | 入門 | LDAP filter、登入驗證漏洞、防禦、程式碼審查清單 | Active Directory edge cases、escaping libraries、SSO directory integration |
+| 42 | `content/資訊安全/Day42_Cookie_Security_Attributes.md` | Cookie Security Attributes | 入門 | HttpOnly、Secure、SameSite、`__Host-`、實作、檢查表、迷思 | Cookie partitioning、CHIPS、跨站登入兼容性 |
+| 43 | `content/資訊安全/Day43_Prototype_Pollution_Object_Injection.md` | Prototype Pollution / Object Injection | 入門 | JS prototype pollution、Jackson readerForUpdating、Go mergo/map 合併、防禦與測試 | Lodash CVE、schema hardening、recursive merge audit |
+| 44 | `content/資訊安全/Day44_ZIP_Slip_Archive_Extraction.md` | ZIP Slip / Archive Extraction | 入門 | 壓縮檔路徑穿越、Java/Go 解壓縮、惡意 zip 測試、zip bomb、防禦規則 | Tar symlink attacks、nested archive limits、antivirus pipeline |
+| 45 | `content/資訊安全/Day45_WebSocket_Security.md` | WebSocket Security | 入門 | CSWSH、Java/Go 正確寫法、長連線授權、其他地雷、檢查清單 | Token refresh over WebSocket、message-level auth、backpressure DoS |
+| 46 | `content/資訊安全/Day46_Host_Header_Injection.md` | Host Header Injection | 入門 | Host header 原理、後端踩雷、攻擊手法、漏洞範例、防禦 | Password reset poisoning、reverse proxy allowed hosts、absolute URL generation |
+| 47 | `content/資訊安全/Day47_Insecure_Randomness.md` | Insecure Randomness | 入門 | PRNG vs CSPRNG、常見災難、Java/Go 範例、SecureRandom 地雷 | Token entropy testing、UUID misuse、randomness in distributed systems |
+| 48 | `content/資訊安全/Day48_HMAC_API_Request_Signing.md` | HMAC / API Request Signing | 入門 | Request signing、canonical string、接收端地雷、密鑰管理、檢查表 | Canonicalization pitfalls、clock skew/replay design、key rotation |
+| 49 | `content/資訊安全/Day49_BFLA_Broken_Function_Level_Authorization.md` | BFLA | 入門 | 功能層級授權、漏洞樣貌、deny by default、細節、API 測試、檢查表 | Route inventory、policy-as-code、admin endpoint testing |
+| 50 | `content/資訊安全/Day50_GraphQL_Security.md` | GraphQL Security | 入門 | Introspection、深度/複雜度攻擊、Alias/Batching 繞 rate limit、細節、檢查表 | Persisted queries、operation cost model、GraphQL auth middleware |
+| 51 | `content/資訊安全/Day51_gRPC_Protobuf_Security.md` | gRPC / Protobuf Security | 入門 | gRPC 攻擊面、Protobuf 反序列化 DoS、MaxRecvMsgSize、TLS/mTLS、檢查表 | Service mesh mTLS、protobuf schema evolution、gRPC auth interceptor |
+| 52 | `content/資訊安全/Day52_Insecure_Deserialization.md` | Insecure Deserialization | 重寫/補強 | Java 原生序列化 RCE、ObjectInputFilter、Jackson polymorphism、SnakeYAML、Go 注意事項 | Gadget chain 深入、JEP 415、Runtime detection、CVE case study |
+| 53 | `content/資訊安全/Day53_SSRF_Server_Side_Request_Forgery.md` | SSRF | 重寫/補強 | SSRF 本質、metadata endpoint、縮圖服務案例、黑名單 IP 失效、Java/Go safe HTTP client、檢查表 | Egress proxy、redirect/DNS pinning、cloud metadata hardening、blind SSRF detection |
+| 54 | `content/資訊安全/Day54_XXE_XML_External_Entity_Injection.md` | XXE | 重寫/補強 | DTD/外部實體、預設設定風險、讀檔與打內網、Java 禁用外部實體、Go encoding/xml 注意 | SAML/SOAP 實戰、parser regression tests、legacy XML parser migration |
+| 55 | `content/資訊安全/Day55_Mass_Assignment_Auto_Binding.md` | Mass Assignment / Auto-Binding | 重寫/補強 | Auto-binding 本質、Spring 反例與 DTO/JsonIgnore/setAllowedFields、Go json.Unmarshal model 陷阱、檢查表 | Framework-specific binding rules、OpenAPI schema tests、BOPLA write-side auth |
+| 56 | `content/資訊安全/Day56_Race_Condition_TOCTOU.md` | Race Condition / TOCTOU | 重寫/補強 | Check/use 非原子、Java synchronized/樂觀鎖/悲觀鎖、Go mutex/atomic DB update、檢查表 | Isolation levels、idempotency key design、concurrency fuzz tests、distributed lock failure modes |
+| 57 | `content/資訊安全/Day57_JWT_Common_Pitfalls.md` | JWT Common Pitfalls | 延伸 | JWT 安全依賴簽章、alg none、decode without verify、演算法混淆、弱密鑰、Java/Go 驗證、檢查表 | JWKS/kid injection、key rotation、refresh token rotation、multi-tenant issuer/audience validation |
