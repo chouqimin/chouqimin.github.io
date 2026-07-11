@@ -122,7 +122,7 @@ filename=../../../../home/app/.ssh/authorized_keys
 
 ### 4. 軟連結（symlink）攻擊
 
-某些系統允許使用者上傳「資料夾」或從 zip 解壓——zip 裡面藏一個 symlink 指向 `/etc/passwd`，解壓完之後讀那個 symlink 就讀到任意系統檔案。**`ZipSlip`**（[CVE-2018-1002200](https://nvd.nist.gov/vuln/detail/CVE-2018-1002200)）就是這類問題的代表，影響超過 20 萬個專案。
+某些系統允許使用者上傳「資料夾」或從 zip 解壓——zip 裡面藏一個 symlink 指向 `/etc/passwd`，解壓完之後讀那個 symlink 就讀到任意系統檔案。**`ZipSlip`**（[CVE-2018-1002200](https://nvd.nist.gov/vuln/detail/CVE-2018-1002200)）就是這類問題的代表，Snyk 2018 年揭露時影響橫跨多個生態系的數千個專案。
 
 ---
 

@@ -176,7 +176,7 @@ Go 真正要小心的是：
 
 1. **反序列化點藏得很深**：cookie、session、訊息佇列（JMS / Kafka 的物件訊息）、快取（Redis 存 Java 物件）、RMI、JNDI——不是只有 HTTP body。盤點所有「外部資料變成物件」的入口。
 2. **黑名單擋不完**：嘗試用「禁止某些類別」來防 gadget 註定失敗，新 gadget chain 一直被挖出來。一律用**白名單**（只允許自家 DTO）。
-3. **依賴版本要顧**：Commons Collections、Jackson、SnakeYAML、Fastjson 都出過反序列化 CVE。搭配 Day（依賴掃描）做 SCA，定期升級。
+3. **依賴版本要顧**：Commons Collections、Jackson、SnakeYAML、Fastjson 都出過反序列化 CVE。搭配 Day18（依賴掃描）做 SCA，定期升級。
 4. **簽章 / 完整性保護**：若資料一定要序列化後傳遞（如 token），用 Day48 的 HMAC 簽章驗證來源與完整性，確保資料沒被竄改——不過簽章只防竄改，**不能取代**「不要反序列化不可信型別」。
 5. **最小化攻擊面**：production 移除用不到的、含已知 gadget 的函式庫，縮小可被串連的類別池。
 

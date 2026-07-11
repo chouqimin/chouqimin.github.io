@@ -48,19 +48,21 @@ public User login(String username, String password) throws SQLException {
 }
 ```
 
-攻擊者在「帳號」欄位輸入：
+攻擊者在「帳號」欄位輸入（結尾用 `--` 把後面的密碼比對整段註解掉）：
 
 ```
-' OR '1'='1
+' OR '1'='1' -- 
 ```
 
 實際送到資料庫的 SQL 變成：
 
 ```sql
-SELECT * FROM users WHERE username = '' OR '1'='1' AND password = '任何東西';
+SELECT * FROM users WHERE username = '' OR '1'='1' -- ' AND password = '任何東西';
 ```
 
-`'1'='1'` 永遠為真，結果就是**不用密碼直接登入第一筆使用者（通常是管理員）**。
+`--` 之後（含原本的 `AND password = ...`）整段被當成註解忽略，等於只剩 `WHERE username = '' OR '1'='1'`。
+
+這裡的關鍵是運算子優先順序：`AND` 比 `OR` 先算，所以如果**不註解掉**、直接送 `' OR '1'='1`，整句會被解讀成 `username = '' OR ('1'='1' AND password = '任何東西')`——除非真有使用者密碼等於「任何東西」，否則撈不到任何列。**必須用 `--` 把密碼條件砍掉**，讓 `'1'='1'` 對每一列都成立，才會**不用密碼就撈出全部使用者、直接登入第一筆（通常是管理員）**。
 
 ---
 

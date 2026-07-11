@@ -318,7 +318,7 @@ func keyFunc(t *jwt.Token) (interface{}, error) {
 
 - **CVE-2015-9235**：Auth0 公開的 RS256/HS256 混淆，影響多個 JS 函式庫。
 - **CVE-2022-21449**（Java ECDSA）：OpenJDK 在驗 ECDSA 簽章時，沒檢查 `r`、`s` 是否為 0，導致**全 0 簽章**也能通過——任何用 ES256/ES384/ES512 的 JWT 都能偽造。影響 JDK 15–18，Java 8 不受影響但 Java 21 已修復。
-- **CVE-2018-1000531**（jjwt 0.6.0 之前）：解析時容易誤用 key。
+- **CVE-2018-1000531**（inversoft `prime-jwt` 1.3.0 以前）：`JWTDecoder.decode` 未擋 `alg=none`，可把 HMAC 簽章的 token 演算法改成 `none` 繞過驗章。
 - 各種 `kid` Path Traversal / SQL Injection 在 HackerOne 上層出不窮。
 
 ---
